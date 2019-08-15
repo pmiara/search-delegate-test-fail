@@ -37,12 +37,6 @@ class MySearchDelegate extends SearchDelegate {
         if (snapshot.connectionState == ConnectionState.done &&
             snapshot.hasData) {
           final entities = snapshot.data;
-          // Close() is inside Future.delayed, because we need to do both:
-          // 1. call close() which returns results and finishes searching,
-          // 2. return some Widget.
-          Future.delayed(Duration.zero, () async {
-            close(context, entities);
-          });
           return ListView.builder(
             itemCount: entities.length,
             itemBuilder: (context, index) => ListTile(
@@ -91,7 +85,6 @@ class MySearchEngine {
         .map<Entity>((json) => Entity.fromJson(json))
         .toList();
     return entities;
-    // Another bug: return entities.where((e) => e.value.contains(query)).toList();
   }
 }
 
