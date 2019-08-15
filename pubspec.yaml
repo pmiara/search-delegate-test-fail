@@ -1,0 +1,22 @@
+name: search_delegate_test
+description: A new Flutter application.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.2.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  test: any
+
+flutter:
+  assets:
+    - test_resources/
+
+  uses-material-design: true
